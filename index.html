@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sara Zahid — Data Science &amp; AI/ML Engineer</title>
+<meta name="description" content="Sara Zahid — Data Science graduate specializing in Machine Learning, RAG pipelines, and agentic AI systems. Islamabad, Pakistan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F2ED;
+    --paper-raised:#FFFFFF;
+    --ink:#1B2321;
+    --ink-soft:#4A544F;
+    --gold:#C1902F;
+    --gold-soft:#E9D3A0;
+    --teal:#3C6459;
+    --rule:#D8D6C7;
+    --rule-strong:#B9B6A3;
+    --max:1120px;
+    --radius:2px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px);
+    background-size:100% 32px;
+    background-attachment:local;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--teal);display:inline-block;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,242,237,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule-strong);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-mark{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
+  .nav-mark span{color:var(--gold);}
+  nav ul{list-style:none;display:flex;gap:28px;}
+  nav a{
+    font-size:14px;font-weight:500;color:var(--ink-soft);
+    position:relative;padding-bottom:3px;
+  }
+  nav a:hover{color:var(--ink);}
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--gold);transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-toggle{display:none;background:none;border:1px solid var(--rule-strong);padding:8px 10px;font-family:'IBM Plex Mono',monospace;font-size:12px;border-radius:var(--radius);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 80px;}
+  .hero-inner{display:grid;grid-template-columns:1.3fr 0.9fr;gap:56px;align-items:center;}
+  .hero-kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(40px,6vw,64px);line-height:1.04;margin-bottom:18px;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p.lede{font-size:17px;color:var(--ink-soft);max-width:52ch;margin-bottom:30px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;
+    padding:13px 22px;border-radius:var(--radius);border:1px solid var(--ink);
+    display:inline-flex;align-items:center;gap:8px;transition:all .2s ease;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper);}
+  .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn-line:hover{background:var(--ink);color:var(--paper);}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;color:var(--ink-soft);}
+  .hero-meta a{border-bottom:1px solid transparent;}
+  .hero-meta a:hover{border-color:var(--ink-soft);}
+
+  .hero-portrait{
+    aspect-ratio:4/5;border:1px solid var(--rule-strong);position:relative;
+    background:var(--paper-raised);
+  }
+  .hero-portrait::before{
+    content:"";position:absolute;top:10px;left:10px;right:-10px;bottom:-10px;
+    border:1px solid var(--rule-strong);z-index:-1;
+  }
+  .img-slot{width:100%;height:100%;object-fit:cover;display:block;}
+  .placeholder{
+    width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;background:
+      repeating-linear-gradient(45deg, #E9E7DC, #E9E7DC 10px, #F1F2ED 10px, #F1F2ED 20px);
+    color:var(--ink-soft);text-align:center;padding:20px;
+  }
+  .placeholder .pi{font-size:26px;}
+  .placeholder .pt{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;}
+  .placeholder .ps{font-size:11px;color:var(--ink-soft);opacity:.75;font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- SECTION shells ---------- */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-raised);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background-image:none;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,4vw,38px);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);margin-bottom:16px;font-size:15.5px;}
+  .fact-list{border-top:1px solid var(--rule);}
+  .fact-row{
+    display:flex;justify-content:space-between;gap:20px;padding:14px 0;
+    border-bottom:1px solid var(--rule);font-size:14px;
+  }
+  .fact-row .k{font-family:'IBM Plex Mono',monospace;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:12px;}
+  .fact-row .v{text-align:right;color:var(--ink);font-weight:500;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 48px;}
+  .skill-group h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .skill-group h3::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;padding:7px 12px;
+    border:1px solid var(--rule-strong);border-radius:var(--radius);color:var(--ink-soft);background:var(--paper-raised);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{border-left:1px solid var(--rule-strong);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 44px 32px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-6px;top:4px;width:11px;height:11px;
+    background:var(--paper);border:2px solid var(--gold);border-radius:50%;
+  }
+  .tl-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+  .tl-role{font-size:19px;margin-bottom:2px;}
+  .tl-org{font-size:14px;color:var(--ink-soft);margin-bottom:14px;font-style:italic;}
+  .tl-item ul{padding-left:18px;color:var(--ink-soft);font-size:14.5px;display:flex;flex-direction:column;gap:6px;}
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .card{
+    background:var(--paper-raised);border:1px solid var(--rule-strong);
+    display:flex;flex-direction:column;position:relative;
+  }
+  .card-tab{
+    position:absolute;top:-1px;left:22px;background:var(--ink);color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 10px 5px;
+    letter-spacing:.05em;
+  }
+  .card-img{aspect-ratio:16/10;border-bottom:1px solid var(--rule-strong);overflow:hidden;}
+  .card-body{padding:24px 22px 22px;}
+  .card-body h3{font-size:19px;margin-bottom:10px;}
+  .card-body p{font-size:14px;color:var(--ink-soft);margin-bottom:16px;}
+  .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+  .card-tags span{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal);
+    border:1px solid var(--rule-strong);padding:3px 8px;
+  }
+  .card-link{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;
+    display:inline-flex;align-items:center;gap:6px;color:var(--ink);
+    border-bottom:1px solid var(--ink);width:fit-content;padding-bottom:2px;
+  }
+  .card-link:hover{color:var(--gold);border-color:var(--gold);}
+
+  .card-locked{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;
+    display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft);
+    border:1px solid var(--rule-strong);padding:8px 12px;width:fit-content;
+    position:relative;cursor:default;background:var(--paper);
+  }
+  .card-locked svg{width:13px;height:13px;flex-shrink:0;}
+  .card-locked .tip{
+    position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(4px);
+    background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-weight:400;
+    font-size:12.5px;line-height:1.4;padding:10px 12px;width:220px;text-align:left;
+    border-radius:var(--radius);opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease;z-index:5;
+  }
+  .card-locked .tip::after{
+    content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:6px solid transparent;border-top-color:var(--ink);
+  }
+  .card-locked:hover .tip,.card-locked:focus-within .tip{
+    opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);
+  }
+  .card-locked:hover{border-color:var(--ink-soft);color:var(--ink);}
+
+  .card-img{position:relative;}
+  .lock-badge{
+    position:absolute;top:12px;right:12px;background:var(--ink);color:var(--paper);
+    width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  }
+  .lock-badge svg{width:14px;height:14px;}
+
+  /* ---------- EDUCATION / TRANSCRIPT ---------- */
+  .transcript{
+    background:var(--paper-raised);border:1px solid var(--rule-strong);
+    display:grid;grid-template-columns:1fr 1px 1fr;
+  }
+  .transcript-main{padding:40px 40px;}
+  .transcript-divider{background:var(--rule-strong);}
+  .transcript-awards{padding:40px 40px;}
+  .transcript-main h3{font-size:22px;margin-bottom:4px;}
+  .transcript-main .school{color:var(--ink-soft);font-style:italic;font-size:14px;margin-bottom:6px;}
+  .transcript-main .dates{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-bottom:24px;}
+  .seal{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--gold);padding:10px 16px;margin-top:6px;
+  }
+  .seal .dot{width:34px;height:34px;border-radius:50%;background:var(--gold-soft);border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;color:#7A5716;font-size:14px;flex-shrink:0;}
+  .seal .txt{font-size:13px;}
+  .seal .txt b{display:block;font-size:14px;}
+  .awards-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .awards-list li{display:flex;gap:12px;font-size:14px;align-items:baseline;}
+  .awards-list li .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--teal);
+    border:1px solid var(--rule-strong);padding:2px 6px;flex-shrink:0;
+  }
+
+  /* ---------- GALLERY (photo placeholders) ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .gallery-item{aspect-ratio:1/1;border:1px solid var(--rule-strong);overflow:hidden;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{background:var(--ink);color:var(--paper);padding:70px 0 30px;background-image:none;}
+  .contact-inner{display:grid;grid-template-columns:1.2fr 0.8fr;gap:50px;padding-bottom:50px;border-bottom:1px solid #384039;}
+  footer h2{color:var(--paper);font-size:clamp(30px,5vw,44px);margin-bottom:16px;}
+  footer p.lede{color:#B9C0BA;max-width:48ch;font-size:15.5px;}
+  .contact-links{display:flex;flex-direction:column;gap:16px;}
+  .contact-links a{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);border-bottom:1px solid #3E4740;padding-bottom:12px;display:flex;justify-content:space-between;}
+  .contact-links a:hover{color:var(--gold);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:12px;color:#8B9289;flex-wrap:wrap;gap:10px;}
+  .footer-bottom .socials{display:flex;gap:18px;}
+  .footer-bottom a:hover{color:var(--gold);}
+
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-portrait{max-width:280px;margin:0 auto;}
+    .about-grid{grid-template-columns:1fr;}
+    .skill-groups{grid-template-columns:1fr;}
+    .project-grid{grid-template-columns:1fr;}
+    .transcript{grid-template-columns:1fr;}
+    .transcript-divider{height:1px;width:100%;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    nav ul{display:none;}
+    .contact-inner{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">Sara Zahid<span>.</span></a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="hero-kicker">Data Science &middot; Machine Learning &middot; Agentic AI</div>
+        <h1>Sara Zahid — building systems that turn <em>data</em> into decisions.</h1>
+        <p class="lede">Data Science graduate and AI/ML engineer based in Islamabad, Pakistan. I build predictive
+          models, RAG pipelines, and production-grade ML systems — from cricket analytics to fake-news detection —
+          grounded in applied research and industry-style engineering.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-solid">View Projects</a>
+          <a href="#contact" class="btn btn-line">Get in Touch</a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Islamabad, Pakistan</span>
+          <a href="mailto:sarazahid198@gmail.com">sarazahid198@gmail.com</a>
+          <a href="https://www.linkedin.com/in/zahid-sara/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <!-- TODO: confirm/replace with your GitHub profile URL -->
+          <a href="https://github.com/zahid-sara" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <!-- Drop your headshot in images/profile.jpg (any size, will be cropped to fit) -->
+        <img class="img-slot" src="images/profile.jpg" alt="Sara Zahid"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;pt&quot;>Profile Photo</div><div class=&quot;ps&quot;>images/profile.jpg</div>'}))">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>Applied research meets production engineering.</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I'm a Data Science undergraduate at the National University of Computer and Emerging Sciences (NUCES),
+            Islamabad, with expertise in machine learning, statistical analysis, and data-driven decision-making
+            developed through applied research and industry-grade project work.</p>
+          <p>I'm skilled in building predictive models, conducting AI model evaluations, and extracting actionable
+            insights using Python, SQL, and visualization tools — and I'm currently deepening my focus on
+            LLM-powered systems: RAG pipelines, agentic workflows, and voice/NLP applications.</p>
+          <p>Outside coursework, I've interned across two backend/ML engineering teams and shipped five independent
+            projects spanning cricket analytics, MLOps, computer vision, and generative models.</p>
+        </div>
+        <div class="fact-list">
+          <div class="fact-row"><span class="k">Status</span><span class="v">BS Data Science, NUCES — Aug '22 to Jun '26</span></div>
+          <div class="fact-row"><span class="k">Location</span><span class="v">Islamabad, Pakistan</span></div>
+          <div class="fact-row"><span class="k">Focus</span><span class="v">ML Engineering, RAG &amp; Agentic AI, MLOps</span></div>
+          <div class="fact-row"><span class="k">Honors</span><span class="v">Gold Medalist, Fall '25</span></div>
+          <div class="fact-row"><span class="k">Recent Roles</span><span class="v">TMRAC · DevelopersHub Cooperation</span></div>
+          <div class="fact-row"><span class="k">Email</span><span class="v">sarazahid198@gmail.com</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Skills &amp; Tools</div>
+        <h2>What I build with.</h2>
+      </div>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Machine Learning &amp; Data</h3>
+          <div class="pill-row">
+            <span class="pill">Machine Learning</span><span class="pill">Scikit-learn</span>
+            <span class="pill">TensorFlow</span><span class="pill">PyTorch</span>
+            <span class="pill">NLTK</span><span class="pill">MLflow</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Languages &amp; Frameworks</h3>
+          <div class="pill-row">
+            <span class="pill">Python</span><span class="pill">C++</span>
+            <span class="pill">React</span><span class="pill">Flask</span>
+            <span class="pill">HTML</span><span class="pill">CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Infra &amp; MLOps</h3>
+          <div class="pill-row">
+            <span class="pill">Docker</span><span class="pill">Airflow</span>
+            <span class="pill">GitHub Actions</span><span class="pill">Prometheus</span>
+            <span class="pill">Grafana</span><span class="pill">AWS (EC2, S3)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data Engineering &amp; BI</h3>
+          <div class="pill-row">
+            <span class="pill">Apache Kafka</span><span class="pill">Apache Spark</span>
+            <span class="pill">PowerBI</span><span class="pill">SQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Experience</div>
+        <h2>Where I've worked.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Jun '25 — Aug '25</div>
+          <h3 class="tl-role">Python Backend Intern</h3>
+          <div class="tl-org">TMRAC</div>
+          <ul>
+            <li>Developed Python backend services for AI/ML-driven applications.</li>
+            <li>Built and optimized prediction and classification models using Scikit-learn and TensorFlow.</li>
+            <li>Created data preprocessing and feature engineering pipelines for large datasets.</li>
+            <li>Integrated ML workflows into backend systems to improve automation and performance.</li>
+          </ul>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun '25 — Aug '25</div>
+          <h3 class="tl-role">Software Engineering Intern</h3>
+          <div class="tl-org">DevelopersHub Cooperation</div>
+          <ul>
+            <li>Performed Python-based data cleaning and visualization using Pandas and Seaborn.</li>
+            <li>Worked with datasets to support AI/ML-driven applications and insights.</li>
+            <li>Contributed to backend development and application performance improvements.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Selected Projects</div>
+        <h2>Academic &amp; independent work.</h2>
+      </div>
+      <div class="project-grid">
+
+        <!-- Project 1 -->
+        <div class="card">
+          <div class="card-tab">01 · Aug '25 – Jun '26</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-crickvision.svg" alt="CrickVision project screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-crickvision.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>CrickVision: Data-Driven Cricket Intelligence</h3>
+            <p>A full-stack cricket analytics web app integrating ML models to replace intuition-based decisions
+              with prescriptive insights for coaches, selectors, and franchise managers. Built end-to-end ML
+              pipelines on 50,000+ Cricsheet ball-by-ball records for predictive player rankings, bowling synergy
+              scores, and form/fatigue trends via a centralized dashboard.</p>
+            <div class="card-tags"><span>Full-Stack</span><span>ML Pipelines</span><span>Dashboard</span></div>
+            <!-- TODO: resume PDF only linked to a generic github.com — replace with the CrickVision repo URL -->
+            <a class="card-link todo" href="https://github.com/tabidah-usmani/FYP-CRICKVISION.git" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+          <div class="card-tab">02 · May '26</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-mlops.svg" alt="MLOps fake news pipeline screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-mlops.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>MLOps Pipeline — Fake News Detection</h3>
+            <p>Production-grade fake news detection system with automated drift detection that triggers model
+              retraining without human intervention. Delivered 92% faster deployments via CI/CD, with a full
+              observability stack: MLflow, Docker, Prometheus, Grafana, and Alertmanager.</p>
+            <div class="card-tags"><span>MLflow</span><span>Docker</span><span>CI/CD</span><span>Grafana</span></div>
+            <!-- TODO: resume PDF only linked to a generic github.com — replace with the MLOps pipeline repo URL -->
+            <a class="card-link todo" href="https://github.com/tabidah-usmani/MLOPS-project.git" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card">
+          <div class="card-tab">03 · Apr '26</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-facial.svg" alt="Facial expression recognition screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-facial.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>Facial Expression Recognition</h3>
+            <p>Multi-class facial expression recognition system using transfer learning (MobileNetV2, EfficientNet).
+              Includes image preprocessing, data augmentation, and CNN training with early stopping and learning
+              rate scheduling.</p>
+            <div class="card-tags"><span>MobileNetV2</span><span>EfficientNet</span><span>CNN</span></div>
+            <a class="card-link" href="https://github.com/zahid-sara/deep-learning-facial-expression-recognition-model-" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card">
+          <div class="card-tab">04 · Mar '26</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-sketch.svg" alt="Sketch to face cGAN screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-sketch.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>Sketch-to-Face Generation (cGAN)</h3>
+            <p>Conditional GAN designed and implemented to generate realistic human face images from sketch inputs
+              using paired datasets. Trained generator and discriminator networks with adversarial and L1 loss to
+              preserve structural fidelity and visual realism.</p>
+            <div class="card-tags"><span>cGAN</span><span>Generator/Discriminator</span><span>Computer Vision</span></div>
+            <a class="card-link" href="https://github.com/zahid-sara/face-generation-from-sketches.git" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="card">
+          <div class="card-tab">05 · Nov '25 – Dec '25</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-hatespeech.svg" alt="Multicultural hate speech detection screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-hatespeech.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>Multicultural Hate Speech Detection (VLMs)</h3>
+            <p>A Cultural Calibration Framework integrating enhanced prompt engineering, logit-based classification,
+              and culture-specific decision thresholds to improve fairness and robustness in multimodal hate speech
+              detection across diverse cultural contexts.</p>
+            <div class="card-tags"><span>Vision-Language Models</span><span>Prompt Engineering</span><span>Fairness</span></div>
+            <!-- TODO: resume PDF only linked to a generic github.com — replace with this project's repo URL -->
+            <a class="card-link todo" href="https://github.com/tabidah-usmani/Deep-Learning.git" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION / TRANSCRIPT ================= -->
+  <section id="education" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Education &amp; Honors</div>
+        <h2>Academic record.</h2>
+      </div>
+      <div class="transcript">
+        <div class="transcript-main">
+          <h3>Bachelor of Science, Data Science</h3>
+          <div class="school">National University of Computer and Emerging Sciences (NUCES), Islamabad, Pakistan</div>
+          <div class="dates">Aug '22 — Jun '26</div>
+          <div class="seal">
+            <div class="dot">🥇</div>
+            <div class="txt"><b>Gold Medal</b>Semester Excellence, Fall '25</div>
+          </div>
+        </div>
+        <div class="transcript-divider"></div>
+        <div class="transcript-awards">
+          <ul class="awards-list">
+            <li><span class="tag">Fall '25</span> Gold Medal — Semester Excellence</li>
+            <li><span class="tag">Fall '25</span> Rector's List of Honor</li>
+            <li><span class="tag">Spring '25</span> Dean's List of Honor</li>
+            <li><span class="tag">Fall '24</span> Dean's List of Honor</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY (optional photo placeholders) ================= -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Gallery</div>
+        <h2>Moments &amp; milestones.</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img class="img-slot" src="images/gallery-1.jpg" alt="Gallery photo 1"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-1.jpg</div>'}))">
+        </div>
+        <div class="gallery-item">
+          <img class="img-slot" src="images/gallery-2.jpg" alt="Gallery photo 2"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-2.jpg</div>'}))">
+        </div>
+        <div class="gallery-item">
+          <img class="img-slot" src="images/gallery-3.jpg" alt="Gallery photo 3"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-3.jpg</div>'}))">
+        </div>
+        <div class="gallery-item">
+          <img class="img-slot" src="images/gallery-4.jpg" alt="Gallery photo 4"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-4.jpg</div>'}))">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Contact</div>
+        <h2>Let's build something.</h2>
+        <p class="lede">Open to software engineering and AI/ML roles — especially teams working on LLMs, RAG
+          systems, or applied ML in production. Based in Islamabad, open to remote and on-site work.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:sarazahid198@gmail.com"><span>Email</span><span>sarazahid198@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/zahid-sara/" target="_blank" rel="noopener"><span>LinkedIn</span><span>↗</span></a>
+        <!-- TODO: confirm your GitHub username -->
+        <a href="https://github.com/zahid-sara" target="_blank" rel="noopener"><span>GitHub</span><span>↗</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sara Zahid. All rights reserved.</span>
+      <div class="socials">
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

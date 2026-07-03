@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Multicultural hate speech detection illustration">
+<title>Multicultural hate speech detection with vision-language models</title>
+<rect width="800" height="500" fill="#F1F2ED"/>
+<rect x="1" y="1" width="798" height="498" fill="none" stroke="#D8D6C7" stroke-width="2"/>
+
+<g stroke="#B9B6A3" stroke-width="1" fill="none">
+<line x1="400" y1="120" x2="220" y2="250"/>
+<line x1="400" y1="120" x2="400" y2="250"/>
+<line x1="400" y1="120" x2="580" y2="250"/>
+<line x1="220" y1="250" x2="310" y2="350"/>
+<line x1="400" y1="250" x2="310" y2="350"/>
+<line x1="400" y1="250" x2="490" y2="350"/>
+<line x1="580" y1="250" x2="490" y2="350"/>
+</g>
+
+<circle cx="400" cy="120" r="34" fill="#F6EBD3" stroke="#C1902F" stroke-width="1"/>
+<text x="400" y="124" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#7A5716">VLM</text>
+
+<g font-family="IBM Plex Mono, monospace" font-size="10" fill="#1B2321">
+<rect x="185" y="222" width="70" height="56" fill="#FFFFFF" stroke="#B9B6A3" stroke-width="1"/>
+<text x="220" y="245" text-anchor="middle">EN</text>
+<text x="220" y="262" text-anchor="middle" fill="#4A544F">text</text>
+
+<rect x="365" y="222" width="70" height="56" fill="#FFFFFF" stroke="#B9B6A3" stroke-width="1"/>
+<text x="400" y="245" text-anchor="middle">UR</text>
+<text x="400" y="262" text-anchor="middle" fill="#4A544F">text</text>
+
+<rect x="545" y="222" width="70" height="56" fill="#FFFFFF" stroke="#B9B6A3" stroke-width="1"/>
+<text x="580" y="245" text-anchor="middle">AR</text>
+<text x="580" y="262" text-anchor="middle" fill="#4A544F">image</text>
+</g>
+
+<rect x="270" y="330" width="80" height="44" fill="#E4EEEA" stroke="#3C6459" stroke-width="1"/>
+<text x="310" y="357" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#274841">SAFE</text>
+
+<rect x="450" y="330" width="80" height="44" fill="#F3E3DC" stroke="#A9522A" stroke-width="1"/>
+<text x="490" y="357" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#A9522A">FLAGGED</text>
+
+<text x="60" y="60" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1" fill="#3C6459">MULTICULTURAL HATE SPEECH DETECTION</text>
+<text x="60" y="440" font-family="IBM Plex Mono, monospace" font-size="12" fill="#4A544F">CULTURAL CALIBRATION · LOGIT-BASED CLASSIFICATION</text>
+</svg>

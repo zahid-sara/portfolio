@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="CrickVision cricket analytics illustration">
+<title>CrickVision — cricket data intelligence</title>
+<rect width="800" height="500" fill="#F1F2ED"/>
+<rect x="1" y="1" width="798" height="498" fill="none" stroke="#D8D6C7" stroke-width="2"/>
+
+<ellipse cx="400" cy="270" rx="300" ry="170" fill="#EAE7D8" stroke="#B9B6A3" stroke-width="1"/>
+<ellipse cx="400" cy="270" rx="60" ry="150" fill="none" stroke="#B9B6A3" stroke-width="1" stroke-dasharray="3 4"/>
+
+<rect x="380" y="150" width="40" height="240" fill="#DAD6C2" stroke="#B9B6A3" stroke-width="1"/>
+<line x1="400" y1="160" x2="400" y2="170" stroke="#1B2321" stroke-width="3"/>
+<line x1="392" y1="160" x2="392" y2="170" stroke="#1B2321" stroke-width="3"/>
+<line x1="408" y1="160" x2="408" y2="170" stroke="#1B2321" stroke-width="3"/>
+<line x1="400" y1="380" x2="400" y2="390" stroke="#1B2321" stroke-width="3"/>
+<line x1="392" y1="380" x2="392" y2="390" stroke="#1B2321" stroke-width="3"/>
+<line x1="408" y1="380" x2="408" y2="390" stroke="#1B2321" stroke-width="3"/>
+
+<path d="M 220 380 Q 320 220 480 150" fill="none" stroke="#C1902F" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="220" cy="380" r="6" fill="#C1902F"/>
+<circle cx="480" cy="150" r="6" fill="#C1902F"/>
+
+<g transform="translate(560,300)">
+<rect x="0" y="40" width="18" height="60" fill="#3C6459"/>
+<rect x="26" y="20" width="18" height="80" fill="#3C6459"/>
+<rect x="52" y="55" width="18" height="45" fill="#3C6459"/>
+<rect x="78" y="5" width="18" height="95" fill="#C1902F"/>
+<line x1="-10" y1="100" x2="106" y2="100" stroke="#1B2321" stroke-width="1"/>
+</g>
+
+<text x="150" y="60" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1" fill="#3C6459">PLAYER RANKING · FORM INDEX</text>
+<text x="150" y="450" font-family="IBM Plex Mono, monospace" font-size="12" fill="#4A544F">50,000+ BALL-BY-BALL RECORDS</text>
+</svg>
