@@ -247,7 +247,34 @@
 
   /* ---------- GALLERY (photo placeholders) ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .gallery-item{aspect-ratio:1/1;border:1px solid var(--rule-strong);overflow:hidden;}
+  .gallery-item{aspect-ratio:1/1;border:1px solid var(--rule-strong);overflow:hidden;position:relative;cursor:pointer;}
+  .gallery-item img{transition:transform .3s ease;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-item .zoom-hint{
+    position:absolute;bottom:8px;right:8px;width:26px;height:26px;border-radius:50%;
+    background:rgba(27,35,33,0.72);color:var(--paper);display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .18s ease;pointer-events:none;
+  }
+  .gallery-item .zoom-hint svg{width:13px;height:13px;}
+  .gallery-item:hover .zoom-hint{opacity:1;}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(15,18,16,0.92);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox-inner{position:relative;max-width:min(900px,92vw);max-height:88vh;}
+  .lightbox img{max-width:min(900px,92vw);max-height:88vh;width:auto;height:auto;display:block;border:1px solid var(--rule-strong);}
+  .lightbox-close{
+    position:absolute;top:-18px;right:-18px;width:38px;height:38px;border-radius:50%;
+    background:var(--paper-raised);border:1px solid var(--rule-strong);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;
+  }
+  .lightbox-close:hover{background:var(--gold);border-color:var(--gold);}
+  @media (max-width:640px){
+    .lightbox-close{top:-14px;right:6px;}
+  }
 
   /* ---------- CONTACT / FOOTER ---------- */
   footer{background:var(--ink);color:var(--paper);padding:70px 0 30px;background-image:none;}
@@ -334,13 +361,16 @@
       <div class="about-grid">
         <div>
           <p>I'm a Data Science undergraduate at the National University of Computer and Emerging Sciences (NUCES),
-            Islamabad, with expertise in machine learning, statistical analysis, and data-driven decision-making
-            developed through applied research and industry-grade project work.</p>
-          <p>I'm skilled in building predictive models, conducting AI model evaluations, and extracting actionable
-            insights using Python, SQL, and visualization tools — and I'm currently deepening my focus on
-            LLM-powered systems: RAG pipelines, agentic workflows, and voice/NLP applications.</p>
-          <p>Outside coursework, I've interned across two backend/ML engineering teams and shipped five independent
-            projects spanning cricket analytics, MLOps, computer vision, and generative models.</p>
+             Islamabad, where four years of coursework have turned into a real appetite for building things that work,
+            not just things that look good in a notebook. I build predictive models, run AI model evaluations, 
+            and dig for the insight buried in a dataset, mostly in Python, SQL, and whatever visualization tool 
+            tells the story fastest.</p>
+          <p>Lately I've been pulled toward LLM-powered systems, RAG pipelines, agentic workflows, and voice/NLP applications
+            and figuring out what it actually takes to make them reliable, not just impressive in a demo.
+          Outside coursework, I've interned across two SWE andbackend/ML engineering teams.
+          </p>
+          <p>In my spare time, I love to crochet, read novels, watch K-dramas, and enjoy the company of my cats.
+             I also like to cook mostly because I like to eat.</p>
         </div>
         <div class="fact-list">
           <div class="fact-row"><span class="k">Status</span><span class="v">BS Data Science, NUCES — Aug '22 to Jun '26</span></div>
@@ -393,6 +423,16 @@
             <span class="pill">PowerBI</span><span class="pill">SQL</span>
           </div>
         </div>
+        <div class="skill-group">
+          <h3>LLM &amp; Agentic AI</h3>
+          <div class="pill-row">
+            <span class="pill">LangChain</span><span class="pill">LangGraph</span>
+            <span class="pill">ChromaDB</span><span class="pill">Google Gemini API</span>
+            <span class="pill">RAG Pipelines</span><span class="pill">Agentic AI Systems</span>
+            <span class="pill">Prompt Engineering</span><span class="pill">Semantic Search</span>
+            <span class="pill">FastAPI</span><span class="pill">Next.js</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -441,10 +481,39 @@
 
         <!-- Project 1 -->
         <div class="card">
-          <div class="card-tab">01 · Aug '25 – Jun '26</div>
+          <div class="card-tab">01 · Jun '26 – Present</div>
+          <div class="card-img">
+            <img class="img-slot" src="images/project-codereviewer.svg" alt="AI code reviewer project screenshot"
+                 onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-codereviewer.svg</div>'}))">
+          </div>
+          <div class="card-body">
+            <h3>AI Code Reviewer</h3>
+            <p>An autonomous LLM-based code review agent using LangGraph to orchestrate a multi-step agentic
+              workflow — AST analysis, RAG retrieval, LLM review, and self-critique — for detecting bugs, security
+              vulnerabilities, and code smells with confidence-scored outputs. RAG architecture built on ChromaDB
+              vector storage and Google Gemini embeddings grounds LLM reasoning in OWASP/PEP8 best practices,
+              retrieving top-k relevant patterns per request to reduce hallucinations. A hybrid pipeline combines
+              deterministic Python AST static analysis with LLM reasoning, exposed through a FastAPI REST backend
+              and Next.js dashboard with structured JSON outputs, review history, and aggregate quality-score
+              analytics.</p>
+            <div class="card-tags"><span>LangGraph</span><span>RAG</span><span>ChromaDB</span><span>FastAPI</span><span>Next.js</span></div>
+            <!-- TODO: confirm the AI code reviewer repo URL -->
+            <a class="card-link todo" href="https://github.com/zahid-sara/ai-code-reviewer" target="_blank" rel="noopener">View Repo ↗</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card">
+          <div class="card-tab">02 · Aug '25 – Jun '26</div>
           <div class="card-img">
             <img class="img-slot" src="images/project-crickvision.svg" alt="CrickVision project screenshot"
                  onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-crickvision.svg</div>'}))">
+            <div class="lock-badge" title="Private project">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+              </svg>
+            </div>
           </div>
           <div class="card-body">
             <h3>CrickVision: Data-Driven Cricket Intelligence</h3>
@@ -453,14 +522,20 @@
               pipelines on 50,000+ Cricsheet ball-by-ball records for predictive player rankings, bowling synergy
               scores, and form/fatigue trends via a centralized dashboard.</p>
             <div class="card-tags"><span>Full-Stack</span><span>ML Pipelines</span><span>Dashboard</span></div>
-            <!-- TODO: resume PDF only linked to a generic github.com — replace with the CrickVision repo URL -->
-            <a class="card-link todo" href="https://github.com/tabidah-usmani/FYP-CRICKVISION.git" target="_blank" rel="noopener">View Repo ↗</a>
+            <span class="card-locked" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+              </svg>
+              Private repo
+              <span class="tip">This project is private — the repository isn't publicly viewable.</span>
+            </span>
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="card">
-          <div class="card-tab">02 · May '26</div>
+          <div class="card-tab">03 · May '26</div>
           <div class="card-img">
             <img class="img-slot" src="images/project-mlops.svg" alt="MLOps fake news pipeline screenshot"
                  onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-mlops.svg</div>'}))">
@@ -478,7 +553,7 @@
 
         <!-- Project 3 -->
         <div class="card">
-          <div class="card-tab">03 · Apr '26</div>
+          <div class="card-tab">04 · Apr '26</div>
           <div class="card-img">
             <img class="img-slot" src="images/project-facial.svg" alt="Facial expression recognition screenshot"
                  onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-facial.svg</div>'}))">
@@ -495,7 +570,7 @@
 
         <!-- Project 4 -->
         <div class="card">
-          <div class="card-tab">04 · Mar '26</div>
+          <div class="card-tab">05 · Mar '26</div>
           <div class="card-img">
             <img class="img-slot" src="images/project-sketch.svg" alt="Sketch to face cGAN screenshot"
                  onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-sketch.svg</div>'}))">
@@ -512,7 +587,7 @@
 
         <!-- Project 5 -->
         <div class="card">
-          <div class="card-tab">05 · Nov '25 – Dec '25</div>
+          <div class="card-tab">06 · Nov '25 – Dec '25</div>
           <div class="card-img">
             <img class="img-slot" src="images/project-hatespeech.svg" alt="Multicultural hate speech detection screenshot"
                  onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>▤</div><div class=&quot;pt&quot;>Project Screenshot</div><div class=&quot;ps&quot;>images/project-hatespeech.svg</div>'}))">
@@ -570,25 +645,58 @@
         <h2>Moments &amp; milestones.</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this)">
           <img class="img-slot" src="images/gallery-1.jpg" alt="Gallery photo 1"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-1.jpg</div>'}))">
+               onerror="this.closest('.gallery-item').onclick=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-1.jpg</div>'}))">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-3.8-3.8"></path><path d="M11 8v6M8 11h6"></path></svg></span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this)">
           <img class="img-slot" src="images/gallery-2.jpg" alt="Gallery photo 2"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-2.jpg</div>'}))">
+               onerror="this.closest('.gallery-item').onclick=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-2.jpg</div>'}))">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-3.8-3.8"></path><path d="M11 8v6M8 11h6"></path></svg></span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this)">
           <img class="img-slot" src="images/gallery-3.jpg" alt="Gallery photo 3"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-3.jpg</div>'}))">
+               onerror="this.closest('.gallery-item').onclick=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-3.jpg</div>'}))">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-3.8-3.8"></path><path d="M11 8v6M8 11h6"></path></svg></span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item" onclick="openLightbox(this)">
           <img class="img-slot" src="images/gallery-4.jpg" alt="Gallery photo 4"
-               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-4.jpg</div>'}))">
+               onerror="this.closest('.gallery-item').onclick=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'placeholder',innerHTML:'<div class=&quot;pi&quot;>◧</div><div class=&quot;ps&quot;>images/gallery-4.jpg</div>'}))">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-3.8-3.8"></path><path d="M11 8v6M8 11h6"></path></svg></span>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ================= LIGHTBOX (gallery image viewer) ================= -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+      <img id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(item){
+      var img = item.querySelector('img');
+      if(!img) return; // placeholder tiles have no image to enlarge
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      var lb = document.getElementById('lightbox');
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeLightbox();
+    });
+  </script>
 
 </main>
 
